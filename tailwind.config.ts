@@ -2,7 +2,7 @@ import { parkwindPlugin } from "@park-ui/tailwind-plugin"
 import type { Config } from "tailwindcss"
 
 const config: Config = {
-	content: ["./src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}"],
+	content: ["./src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}", "index.html"],
 	theme: {
 		extend: {},
 	},

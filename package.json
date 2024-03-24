@@ -14,8 +14,11 @@
   "dependencies": {
     "@ark-ui/solid": "^2.2.0",
     "@park-ui/tailwind-plugin": "^0.20.1",
+    "@solidjs/router": "^0.13.1",
     "@tauri-apps/api": "^1.5.3",
-    "solid-js": "^1.8.16"
+    "solid-icons": "^1.1.0",
+    "solid-js": "^1.8.16",
+    "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.11",

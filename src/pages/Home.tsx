@@ -1,20 +1,23 @@
-import { invoke } from "@tauri-apps/api/tauri";
-import { createSignal } from "solid-js";
-import "./App.css";
-import logo from "./assets/logo.svg";
+import { invoke } from "@tauri-apps/api/tauri"
+import { createSignal } from "solid-js"
+import { Header } from "~/components/ui/card"
+import { Text } from "~/components/ui/text"
+import { Avatar } from "../components/ui/avatar"
 
 function App() {
-	const [greetMsg, setGreetMsg] = createSignal("");
-	const [name, setName] = createSignal("");
+	const [greetMsg, setGreetMsg] = createSignal("")
+	const [name, setName] = createSignal("")
 
 	async function greet() {
 		// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-		setGreetMsg(await invoke("greet", { name: name() }));
+		setGreetMsg(await invoke("greet", { name: name() }))
 	}
 
 	return (
-		<div class="container">
-			<h1>Welcome to Kahri!</h1>
+		<div>
+			<Header>Welcome to Kahri!</Header>
+
+			<Avatar src="https://i.pravatar.cc/300" name="John Doe" />
 
 			<div class="row">
 				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
@@ -23,18 +26,15 @@ function App() {
 				<a href="https://tauri.app" target="_blank" rel="noreferrer">
 					<img src="/tauri.svg" class="logo tauri" alt="Tauri logo" />
 				</a>
-				<a href="https://solidjs.com" target="_blank" rel="noreferrer">
-					<img src={logo} class="logo solid" alt="Solid logo" />
-				</a>
 			</div>
 
-			<p>Click on the Tauri, Vite, and Solid logos to learn more.</p>
+			<Text>Click on the Tauri, Vite, and Solid logos to learn more.</Text>
 
 			<form
 				class="row"
 				onSubmit={(e) => {
-					e.preventDefault();
-					greet();
+					e.preventDefault()
+					greet()
 				}}
 			>
 				<input
@@ -47,7 +47,7 @@ function App() {
 
 			<p>{greetMsg()}</p>
 		</div>
-	);
+	)
 }
 
-export default App;
+export default App
