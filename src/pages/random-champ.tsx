@@ -1,4 +1,3 @@
-import { createAsync } from "@solidjs/router"
 import { For, Suspense, createResource } from "solid-js"
 import { Badge } from "~/components/ui/badge"
 import { Button } from "~/components/ui/button"
