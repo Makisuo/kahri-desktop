@@ -43,7 +43,7 @@ const sections = [
 
 export const RootLayout: Component<RootLayoutProps> = ({ children }) => {
 	return (
-		<div class="dark flex h-screen overflow-hidden border-border-default bg-bg-default text-fg-default">
+		<div class="flex h-screen overflow-hidden border-border-default bg-bg-default text-fg-default">
 			<Drawer.Root>
 				<div class="hidden md:flex md:flex-shrink-0">
 					<div class="flex w-64 flex-col">
