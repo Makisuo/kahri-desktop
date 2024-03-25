@@ -17,14 +17,6 @@
         "open": true
       }
     },
-    "updater": {
-      "active": true,
-      "endpoints": [
-        "https://releases.myapp.com/{{target}}/{{arch}}/{{current_version}}"
-      ],
-      "dialog": true,
-      "pubkey": "YOUR_UPDATER_SIGNATURE_PUBKEY_HERE"
-    },
     "windows": [
       {
         "title": "kahri-desktop",
@@ -38,7 +30,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.tauri.dev",
+      "identifier": "com.kahri.prod",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
