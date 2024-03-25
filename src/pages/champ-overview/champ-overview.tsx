@@ -10,7 +10,7 @@ export const ChampOverview = () => {
 
 	return (
 		<div>
-			<Suspense>
+			<Suspense fallback="Loading...">
 				{champions() && <ChampOverviewDataTable data={champions() || []} columns={columns as any} />}
 			</Suspense>
 		</div>

@@ -36,16 +36,15 @@ export const getChampionIdByName = async (name: string) => {
 
 export const getAllChampions = cache(async () => {
 	const version = await getCurrentVersion()
-	const reponse = await fetch(`http://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.json`)
+	const reponse = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.json`)
 
 	const result = await reponse.json()
-	console.log(Object.values(result.data))
 	return Object.values(result.data) as Champion[]
 }, "all_champions")
 
 export const getRandomChampion = async () => {
 	const version = await getCurrentVersion()
-	const reponse = await fetch(`http://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.json`)
+	const reponse = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.json`)
 	const { data } = await reponse.json()
 	return data[Object.keys(data)[Math.floor(Math.random() * Math.floor(Object.keys(data).length))]]
 }
