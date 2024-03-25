@@ -28,6 +28,11 @@ const sections = [
 				icon: TbHome,
 			},
 			{
+				name: "ChampOverview",
+				href: "/champ-overview",
+				icon: TbHome,
+			},
+			{
 				name: "Crafting",
 				href: "/mastery",
 				icon: TbHome,
@@ -112,12 +117,8 @@ export const RootLayout: Component<RootLayoutProps> = ({ children }) => {
 			<div class="flex w-0 flex-1 flex-col overflow-hidden">
 				<main class="relative flex-1 overflow-y-auto focus:outline-none">
 					<div class="py-6">
-						<div class="px-4 mx-auto 2xl:max-w-7xl sm:px-6 md:px-8">
-							<div class="py-4">
-								<div class="h-screen rounded-lg border border-border-subtle border-dashed">
-									{children}
-								</div>
-							</div>
+						<div class="mx-auto px-4 2xl:max-w-7xl md:px-8 sm:px-6">
+							<div class="py-4">{children}</div>
 						</div>
 					</div>
 				</main>
