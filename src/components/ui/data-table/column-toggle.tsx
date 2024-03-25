@@ -1,5 +1,3 @@
-"use client"
-
 import type { Table } from "@tanstack/solid-table"
 
 import { TbAdjustments, TbCheck } from "solid-icons/tb"
