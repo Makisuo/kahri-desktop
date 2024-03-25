@@ -34,7 +34,7 @@ const sections = [
 			},
 			{
 				name: "Crafting",
-				href: "/mastery",
+				href: "/crafting",
 				icon: TbHome,
 			},
 		],
