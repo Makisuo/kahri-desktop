@@ -66,7 +66,7 @@ export const RootLayout: Component<RootLayoutProps> = ({ children }) => {
 												fill="#0c0c0c"
 											/>
 										</svg>
-										windstatic
+										Kahri
 									</span>
 								</A>
 								<button type="button" class="hidden rounded-lg focus:shadow-outline focus:outline-none">
