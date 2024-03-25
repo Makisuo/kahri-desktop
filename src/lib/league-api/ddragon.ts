@@ -39,6 +39,7 @@ export const getAllChampions = cache(async () => {
 	const reponse = await fetch(`http://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.json`)
 
 	const result = await reponse.json()
+	console.log(Object.values(result.data))
 	return Object.values(result.data) as Champion[]
 }, "all_champions")
 

@@ -3,7 +3,7 @@
 import type { Table } from "@tanstack/solid-table"
 
 import { TbAdjustments, TbCheck } from "solid-icons/tb"
-import * as Select from "~/components/ui/select"
+import * as Menu from "~/components/ui/menu"
 import { Button } from "../button"
 
 interface DataTableViewOptionsProps<TData> {
@@ -12,38 +12,37 @@ interface DataTableViewOptionsProps<TData> {
 
 export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps<TData>) {
 	return (
-		<Select.Root items={table.getAllColumns()} multiple>
-			<Select.Trigger>
-				<Button variant="outline" size="sm" class="ml-auto hidden h-8 lg:flex">
-					<TbAdjustments class="mr-2 h-4 w-4" />
-					View
-				</Button>
-			</Select.Trigger>
-			<Select.Positioner class="w-[150px]">
-				<Select.Content>
-					<Select.ItemGroup id="toggle-gorup">
-						<Select.ItemGroupLabel for="toggle-gorup">Toggle columns</Select.ItemGroupLabel>
+		<Menu.Root class={"w-min"}>
+			<Menu.Trigger as={Button} variant="outline" size="xs" class="hidden w-min lg:flex">
+				<TbAdjustments class="mr-2 h-4 w-4" />
+				View
+			</Menu.Trigger>
+			<Menu.Positioner class="w-[150px]">
+				<Menu.Content>
+					<Menu.ItemGroup id="toggle-gorup">
+						<Menu.ItemGroupLabel for="toggle-gorup">Toggle columns</Menu.ItemGroupLabel>
 						{table
 							.getAllColumns()
 							.filter((column) => typeof column.accessorFn !== "undefined" && column.getCanHide())
 							.map((column) => {
 								return (
-									<Select.Item
+									<Menu.Item
 										class="capitalize"
 										id={column.id}
-										item={column}
-										onSelect={() => column.toggleVisibility(!!column.getIsVisible())}
+										onClick={() => column.toggleVisibility()}
 									>
-										<Select.ItemText>{column.id}</Select.ItemText>
-										<Select.ItemIndicator>
-											<TbCheck />
-										</Select.ItemIndicator>
-									</Select.Item>
+										{column.getIsVisible() ? (
+											<TbCheck class="mr-2 size-4 text-accent-emphasized" />
+										) : (
+											<div class="mr-2 size-4" />
+										)}
+										{column.id}
+									</Menu.Item>
 								)
 							})}
-					</Select.ItemGroup>
-				</Select.Content>
-			</Select.Positioner>
-		</Select.Root>
+					</Menu.ItemGroup>
+				</Menu.Content>
+			</Menu.Positioner>
+		</Menu.Root>
 	)
 }
