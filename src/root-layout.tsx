@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router"
-import { TbHome } from "solid-icons/tb"
+import { TbAirBalloon, TbArrowsRandom, TbGizmo, TbHome, TbOctagon } from "solid-icons/tb"
 import type { Component, JSX } from "solid-js"
 
 import * as Drawer from "~/components/ui/drawer"
@@ -25,17 +25,22 @@ const sections = [
 			{
 				name: "Mastery",
 				href: "/mastery",
-				icon: TbHome,
+				icon: TbOctagon,
 			},
 			{
-				name: "ChampOverview",
+				name: "Random Champ",
+				href: "/random-champ",
+				icon: TbArrowsRandom,
+			},
+			{
+				name: "Champion Overview",
 				href: "/champ-overview",
-				icon: TbHome,
+				icon: TbAirBalloon,
 			},
 			{
 				name: "Crafting",
 				href: "/crafting",
-				icon: TbHome,
+				icon: TbGizmo,
 			},
 		],
 	},

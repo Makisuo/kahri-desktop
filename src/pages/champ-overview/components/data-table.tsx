@@ -48,7 +48,7 @@ export function ChampOverviewDataTable<TData, TValue>({ columns, data }: DataTab
 					<Input
 						value={globalFilter() ?? ""}
 						onInput={(value) => setGlobalFilter(String(value.target.value))}
-						placeholder="Search all columns..."
+						placeholder="Search..."
 					/>
 				</div>
 				<DataTableViewOptions table={table} />

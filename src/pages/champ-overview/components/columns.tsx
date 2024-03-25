@@ -1,4 +1,5 @@
 import { createColumnHelper } from "@tanstack/solid-table"
+import { Text } from "~/components/ui/text"
 import type { Champion } from "~/lib/league-api/types"
 import { DataTableColumnHeader } from "../../../components/ui/data-table/column-header"
 
@@ -8,12 +9,23 @@ export const columns = [
 	columnHelper.accessor("name", {
 		id: "name",
 		header: ({ column }) => <DataTableColumnHeader column={column} title="Champion" />,
+		cell: ({ cell, getValue }) => {
+			return (
+				<div class="flex items-center gap-2">
+					<img
+						class="size-6"
+						src={`https://cdn.communitydragon.org/latest/champion/${cell.row.original.key}/square`}
+						alt={getValue()}
+					/>
+					<Text class="font-semibold">{getValue()}</Text>
+				</div>
+			)
+		},
 	}),
 	columnHelper.accessor("stats.hp", {
 		id: "hp",
 		header: ({ column }) => <DataTableColumnHeader column={column} title="HP" />,
 	}),
-	// TODO: CHECK THIS
 	columnHelper.accessor("stats.hpperlevel", {
 		id: "hp@18",
 		header: ({ column }) => <DataTableColumnHeader column={column} title="HP@18" />,
