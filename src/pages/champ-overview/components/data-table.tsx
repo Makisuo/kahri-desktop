@@ -1,7 +1,19 @@
 "use client"
 
-import { type ColumnDef, createSolidTable, flexRender, getCoreRowModel, getSortedRowModel } from "@tanstack/solid-table"
+import {
+	type ColumnDef,
+	createSolidTable,
+	flexRender,
+	getCoreRowModel,
+	getFacetedMinMaxValues,
+	getFacetedRowModel,
+	getFacetedUniqueValues,
+	getFilteredRowModel,
+	getSortedRowModel,
+} from "@tanstack/solid-table"
+import { createSignal } from "solid-js"
 import { DataTableViewOptions } from "~/components/ui/data-table/column-toggle"
+import { Input } from "~/components/ui/input"
 
 import * as Table from "~/components/ui/table"
 
@@ -11,17 +23,36 @@ interface DataTableProps<TData, TValue> {
 }
 
 export function ChampOverviewDataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
+	const [globalFilter, setGlobalFilter] = createSignal<string>()
+
 	const table = createSolidTable({
 		data,
 		columns,
 		getCoreRowModel: getCoreRowModel(),
 		getSortedRowModel: getSortedRowModel(),
+		onGlobalFilterChange: setGlobalFilter,
+		getFilteredRowModel: getFilteredRowModel(),
+		getFacetedRowModel: getFacetedRowModel(),
+		getFacetedUniqueValues: getFacetedUniqueValues(),
+		getFacetedMinMaxValues: getFacetedMinMaxValues(),
+		globalFilterFn: "includesString",
+		state: {
+			get globalFilter() {
+				return globalFilter()
+			},
+		},
 	})
 
 	return (
 		<div class="space-y-3">
 			<div class="flex w-full flex-row justify-between">
-				<div />
+				<div>
+					<Input
+						value={globalFilter() ?? ""}
+						onInput={(value) => setGlobalFilter(String(value.target.value))}
+						placeholder="Search all columns..."
+					/>
+				</div>
 				<DataTableViewOptions table={table} />
 			</div>
 			<div class="overflow-scroll rounded-md border">
