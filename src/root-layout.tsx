@@ -42,6 +42,11 @@ const sections = [
 				href: "/crafting",
 				icon: TbGizmo,
 			},
+			{
+				name: "Lobby Rooms",
+				href: "/ingame-vc",
+				icon: TbGizmo,
+			},
 		],
 	},
 ]

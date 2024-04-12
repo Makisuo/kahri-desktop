@@ -9,6 +9,7 @@ import { ChampOverview } from "./pages/champ-overview/champ-overview"
 import { champOverviewPageLoader } from "./pages/champ-overview/champ-overview-page-loader"
 import { CraftingPage } from "./pages/crafting"
 import Home from "./pages/home"
+import { IngameVcPage } from "./pages/ingame-vc"
 import { MasteryPage } from "./pages/mastery"
 import { RandomChampPage } from "./pages/random-champ"
 import { RootLayout } from "./root-layout"
@@ -21,6 +22,7 @@ render(
 			<Route path="/random-champ" component={RandomChampPage} />
 			<Route path="/champ-overview" load={champOverviewPageLoader} component={ChampOverview} />
 			<Route path="/crafting" component={CraftingPage} />
+			<Route path="/ingame-vc" component={IngameVcPage} />
 		</Router>
 	),
 	document.getElementById("root") as HTMLElement,

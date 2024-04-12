@@ -14,21 +14,21 @@
   "dependencies": {
     "@ark-ui/solid": "^2.2.0",
     "@park-ui/tailwind-plugin": "^0.20.1",
-    "@solidjs/router": "^0.13.1",
-    "@tanstack/solid-table": "^8.15.0",
+    "@solidjs/router": "^0.13.2",
+    "@tanstack/solid-table": "^8.15.3",
     "@tauri-apps/api": "^1.5.3",
     "solid-icons": "^1.1.0",
     "solid-js": "^1.8.16",
     "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.6.2",
+    "@biomejs/biome": "^1.6.4",
     "@tauri-apps/cli": "^1.5.11",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.3",
-    "vite": "^5.2.6",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.8",
     "vite-plugin-solid": "^2.10.2",
     "vite-tsconfig-paths": "^4.3.2"
   }

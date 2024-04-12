@@ -11,31 +11,38 @@ export const RandomChampPage = () => {
 	return (
 		<div>
 			<Suspense>
-				<Card.Root class="flex w-full flex-row">
-					<img
-						class="m-6 h-[400px] rounded-md border-2 border-accent-emphasized"
-						src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion()?.id}_0.jpg`}
-						alt={champion()?.name}
-					/>
+				<form
+					onSubmit={(e) => {
+						e.preventDefault()
+						refetch()
+					}}
+				>
+					<Card.Root class="flex w-full flex-row">
+						<img
+							class="m-6 h-[400px] rounded-md border-2 border-accent-emphasized"
+							src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion()?.id}_0.jpg`}
+							alt={champion()?.name}
+						/>
 
-					<div class="flex w-full flex-col">
-						<Card.Header>
-							<Card.Title>{champion()?.name}</Card.Title>
-							<Card.Description>{champion()?.title}</Card.Description>
-							<RatingGroup value={champion()?.info.difficulty} readOnly />
+						<div class="flex w-full flex-col">
+							<Card.Header>
+								<Card.Title>{champion()?.name}</Card.Title>
+								<Card.Description>{champion()?.title}</Card.Description>
+								<RatingGroup value={champion()?.info.difficulty} readOnly />
 
-							<div class="flex gap-2">
-								<For each={champion()?.tags}>{(item) => <Badge>{item}</Badge>}</For>
-							</div>
-						</Card.Header>
-						<Card.Body>
-							<p>{champion()?.blurb}</p>
-						</Card.Body>
-						<Card.Footer>
-							<Button onClick={refetch}>Reroll</Button>
-						</Card.Footer>
-					</div>
-				</Card.Root>
+								<div class="flex gap-2">
+									<For each={champion()?.tags}>{(item) => <Badge>{item}</Badge>}</For>
+								</div>
+							</Card.Header>
+							<Card.Body>
+								<p>{champion()?.blurb}</p>
+							</Card.Body>
+							<Card.Footer>
+								<Button type="submit">Reroll</Button>
+							</Card.Footer>
+						</div>
+					</Card.Root>
+				</form>
 			</Suspense>
 		</div>
 	)
